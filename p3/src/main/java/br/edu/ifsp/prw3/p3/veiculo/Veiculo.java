@@ -6,7 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.EqualsAndHashCode;
 
+
 @Embeddable
+@Getter
 public class Veiculo {
     private String marca;
     private String modelo;

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.EqualsAndHashCode;
 
 @Embeddable
+@Getter
 public class Mecanico {
     private String nome;
     private int anosExperiencia;
