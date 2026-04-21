@@ -13,4 +13,7 @@ public record DadosVeiculo(
 
         @NotBlank
         @Pattern(regexp = "^\\d{4}$", message = "O ano deve ter exatamente 4 dígitos")
-        String ano) {}
+        String ano,
+
+        @NotBlank
+        String cor) {}
