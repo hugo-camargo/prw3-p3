@@ -42,10 +42,18 @@ public class Conserto {
     })
     private Veiculo veiculo;
 
+    @Column(name = "ativo")
+    private Boolean ativo;
+
     public Conserto(DadosConserto dados) {
         this.dataEntrada = dados.dataEntrada();
         this.dataSaida = dados.dataSaida();
         this.mecanicoResponsavel = new Mecanico(dados.mecanicoResponsavel());
         this.veiculo = new Veiculo(dados.veiculo());
+        this.ativo = true;
+    }
+
+    public void excluir(){
+        this.ativo = false;
     }
 }

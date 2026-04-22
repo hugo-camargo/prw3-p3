@@ -36,4 +36,12 @@ public class ConsertoController {
     public List<DadosListagemConserto> listarAlgunsDados() {
         return repository.findAll().stream().map(DadosListagemConserto::new).toList();
     }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void excluir(@PathVariable long id){
+        Conserto conserto = repository.getReferenceById(id);
+
+        conserto.excluir();
+    }
 }

@@ -26,5 +26,8 @@ public record DadosConserto(
 
         @NotNull
         @Valid
-        DadosVeiculo veiculo
+        DadosVeiculo veiculo,
+
+
+        Boolean ativo
 ) {}
