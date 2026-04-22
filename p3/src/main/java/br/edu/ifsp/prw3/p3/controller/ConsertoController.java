@@ -34,7 +34,7 @@ public class ConsertoController {
 
     @GetMapping("/algunsdados")
     public List<DadosListagemConserto> listarAlgunsDados() {
-        return repository.findAll().stream().map(DadosListagemConserto::new).toList();
+        return repository.findAllByAtivoTrue().stream().map(DadosListagemConserto::new).toList();
     }
 
     @DeleteMapping("/{id}")
