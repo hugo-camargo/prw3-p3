@@ -27,7 +27,7 @@ public class ConsertoController {
         repository.save(new Conserto(dados));
     }
 
-    @GetMapping
+    @GetMapping("/dados")
     public Page<Conserto> listar(Pageable paginacao) {
         return repository.findAll(paginacao);
     }

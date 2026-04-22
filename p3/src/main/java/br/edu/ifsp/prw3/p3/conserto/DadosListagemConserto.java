@@ -10,7 +10,7 @@ public record DadosListagemConserto(String dataEntrada, String dataSaida,
         this(conserto.getDataEntrada(),
                 conserto.getDataSaida(),
                 conserto.getMecanicoResponsavel().getNome(),
-                conserto.getVeiculo().getModelo(),
-                conserto.getVeiculo().getMarca());
+                conserto.getVeiculo().getMarca(),
+                conserto.getVeiculo().getModelo());
     }
 }

@@ -6,6 +6,7 @@ import br.edu.ifsp.prw3.p3.veiculo.DadosVeiculo;
 import br.edu.ifsp.prw3.p3.veiculo.Veiculo;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 public record DadosConserto(
@@ -19,10 +20,11 @@ public record DadosConserto(
         @Pattern(regexp = "^\\d{2}/\\d{2}/\\d{4}$")
         String dataSaida,
 
-        @NotBlank
+        @NotNull
         @Valid
         DadosMecanico mecanicoResponsavel,
 
-        @NotBlank
+        @NotNull
         @Valid
-        DadosVeiculo veiculo) {}
+        DadosVeiculo veiculo
+) {}
