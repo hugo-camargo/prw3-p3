@@ -1,5 +1,6 @@
 package br.edu.ifsp.prw3.p3.conserto;
 
+import br.edu.ifsp.prw3.p3.mecanico.DadosMecanico;
 import br.edu.ifsp.prw3.p3.mecanico.Mecanico;
 import br.edu.ifsp.prw3.p3.veiculo.Veiculo;
 import jakarta.persistence.*;
@@ -58,12 +59,16 @@ public class Conserto {
     }
 
     public void atualizarInformacoes(DadosAtualizacaoConserto dados){
-        if(dados.nome() != null){
-            this.mecanicoResponsavel.atualizarInformacao(dados.nome());
+
+        if(dados.nome() != null && dados.anosExperiencia() > 0){
+            this.mecanicoResponsavel.atualizarInformacao(
+                    new DadosMecanico(
+                            dados.nome(),
+                            dados.anosExperiencia()
+                    )
+            );
         }
-        if(dados.anosExperiencia() > 0){
-            this.mecanicoResponsavel.atualizarInformacao(dados.anosExperiencia());
-        }
+
         if(dados.dataSaida() != null){
             this.dataSaida = dados.dataSaida();
         }
