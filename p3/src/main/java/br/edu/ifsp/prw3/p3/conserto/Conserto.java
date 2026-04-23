@@ -56,4 +56,16 @@ public class Conserto {
     public void excluir(){
         this.ativo = false;
     }
+
+    public void atualizarInformacoes(DadosAtualizacaoConserto dados){
+        if(dados.nome() != null){
+            this.mecanicoResponsavel.atualizarInformacao(dados.nome());
+        }
+        if(dados.anosExperiencia() > 0){
+            this.mecanicoResponsavel.atualizarInformacao(dados.anosExperiencia());
+        }
+        if(dados.dataSaida() != null){
+            this.dataSaida = dados.dataSaida();
+        }
+    }
 }

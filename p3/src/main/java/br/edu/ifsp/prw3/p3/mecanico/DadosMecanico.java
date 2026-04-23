@@ -9,4 +9,4 @@ public record DadosMecanico(
         String nome,
 
         @NotNull
-        int anosExperiencia) {}
+        int anosExperiencia) { }

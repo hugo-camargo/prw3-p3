@@ -1,9 +1,6 @@
 package br.edu.ifsp.prw3.p3.controller;
 
-import br.edu.ifsp.prw3.p3.conserto.DadosConserto;
-import br.edu.ifsp.prw3.p3.conserto.Conserto;
-import br.edu.ifsp.prw3.p3.conserto.ConsertoRepository;
-import br.edu.ifsp.prw3.p3.conserto.DadosListagemConserto;
+import br.edu.ifsp.prw3.p3.conserto.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,23 +39,34 @@ public class ConsertoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Conserto> getConsertoById(@PathVariable long id){
+    public ResponseEntity getConsertoById(@PathVariable long id){
 
         Optional<Conserto> consertoOptional = repository.findById(id);
 
         if(consertoOptional.isPresent()){
             Conserto conserto = consertoOptional.get();
-            return ResponseEntity.ok(conserto);
+            return ResponseEntity.ok(new DadosDetalhamentoConserto(conserto));
         }else{
             return ResponseEntity.notFound().build();
         }
     }
 
+    @PutMapping
+    @Transactional
+    public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoConserto dados){
+        Conserto conserto = repository.getReferenceById(dados.id());
+        conserto.atualizarInformacoes(dados);
+
+        return ResponseEntity.ok(new DadosDetalhamentoConserto(conserto));
+
+    }
+
     @DeleteMapping("/{id}")
     @Transactional
-    public void excluir(@PathVariable long id){
+    public ResponseEntity excluir(@PathVariable long id){
         Conserto conserto = repository.getReferenceById(id);
 
         conserto.excluir();
+        return ResponseEntity.noContent().build();
     }
 }

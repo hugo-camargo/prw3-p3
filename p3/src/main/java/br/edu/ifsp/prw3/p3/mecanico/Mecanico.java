@@ -17,5 +17,14 @@ public class Mecanico {
         this.anosExperiencia = dados.anosExperiencia();
     }
 
-    public Mecanico() { }
+    public Mecanico() {}
+
+    public void atualizarInformacao(DadosMecanico dados){
+        if (dados.nome() != null){
+            this.nome = dados.nome();
+        }
+        if (dados.anosExperiencia() > 0){
+            this.anosExperiencia = dados.anosExperiencia();
+        }
+    }
 }
