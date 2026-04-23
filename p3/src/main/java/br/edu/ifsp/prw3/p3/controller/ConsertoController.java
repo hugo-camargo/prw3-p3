@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,9 +22,15 @@ public class ConsertoController {
 
     @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody @Valid DadosConserto dados) {
+    public ResponseEntity cadastrar(@RequestBody @Valid DadosConserto dados, UriComponentsBuilder uriBuilder) {
 
-        repository.save(new Conserto(dados));
+        var conserto = new Conserto(dados);
+
+        repository.save(conserto);
+
+        var uri = uriBuilder.path("/consertos/{id}").buildAndExpand(conserto.getId()).toUri();
+
+        return ResponseEntity.created(uri).body(new DadosConserto(conserto));
     }
 
     @GetMapping("/dados")
@@ -39,7 +46,7 @@ public class ConsertoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getConsertoById(@PathVariable long id){
+    public ResponseEntity getConsertoById(@PathVariable("id") long id){
 
         Optional<Conserto> consertoOptional = repository.findById(id);
 
@@ -63,7 +70,7 @@ public class ConsertoController {
 
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity excluir(@PathVariable long id){
+    public ResponseEntity excluir(@PathVariable("id") long id){
         Conserto conserto = repository.getReferenceById(id);
 
         conserto.excluir();

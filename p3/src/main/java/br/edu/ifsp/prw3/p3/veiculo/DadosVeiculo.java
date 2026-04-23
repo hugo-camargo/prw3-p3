@@ -16,4 +16,13 @@ public record DadosVeiculo(
         String ano,
 
         String cor
-) {}
+) {
+        public DadosVeiculo(Veiculo veiculo) {
+                this(
+                        veiculo.getMarca(),
+                        veiculo.getModelo(),
+                        veiculo.getAno(),
+                        veiculo.getCor()
+                );
+        }
+}

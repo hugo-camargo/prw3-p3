@@ -30,4 +30,14 @@ public record DadosConserto(
 
 
         Boolean ativo
-) {}
+) {
+        public DadosConserto(Conserto conserto) {
+                this(
+                        conserto.getDataEntrada(),
+                        conserto.getDataSaida(),
+                        new DadosMecanico(conserto.getMecanicoResponsavel()),
+                        new DadosVeiculo(conserto.getVeiculo()),
+                        conserto.getAtivo()
+                );
+        }
+}

@@ -12,11 +12,12 @@ public class Mecanico {
     private String nome;
     private int anosExperiencia;
 
+    public Mecanico() { }
+
     public Mecanico(DadosMecanico dados) {
         this.nome = dados.nome();
         this.anosExperiencia = dados.anosExperiencia();
     }
-
 
     public void atualizarInformacao(DadosMecanico dados){
         if (dados.nome() != null){

@@ -9,4 +9,12 @@ public record DadosMecanico(
         String nome,
 
         @NotNull
-        int anosExperiencia) { }
+        int anosExperiencia) {
+
+        public DadosMecanico(Mecanico mecanico) {
+                this(
+                        mecanico.getNome(),
+                        mecanico.getAnosExperiencia()
+                );
+        }
+}

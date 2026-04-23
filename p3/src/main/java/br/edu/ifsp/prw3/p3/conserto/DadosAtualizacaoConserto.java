@@ -12,4 +12,13 @@ public record DadosAtualizacaoConserto(
 
         int anosExperiencia
 
-) { }
+) {
+        public DadosAtualizacaoConserto(Conserto conserto) {
+                this(
+                        conserto.getId(),
+                        conserto.getDataSaida(),
+                        conserto.getMecanicoResponsavel().getNome(),
+                        conserto.getMecanicoResponsavel().getAnosExperiencia()
+                );
+        }
+}
