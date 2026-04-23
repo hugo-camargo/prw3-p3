@@ -9,9 +9,11 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/consertos")
@@ -28,13 +30,28 @@ public class ConsertoController {
     }
 
     @GetMapping("/dados")
-    public Page<Conserto> listar(Pageable paginacao) {
-        return repository.findAll(paginacao);
+    public ResponseEntity listar(Pageable paginacao) {
+        var pagina = repository.findAll(paginacao);
+        return ResponseEntity.ok(pagina);
     }
 
     @GetMapping("/algunsdados")
-    public List<DadosListagemConserto> listarAlgunsDados() {
-        return repository.findAllByAtivoTrue().stream().map(DadosListagemConserto::new).toList();
+    public ResponseEntity listarAlgunsDados() {
+        var lista = repository.findAllByAtivoTrue().stream().map(DadosListagemConserto::new).toList();
+        return ResponseEntity.ok(lista);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Conserto> getConsertoById(@PathVariable long id){
+
+        Optional<Conserto> consertoOptional = repository.findById(id);
+
+        if(consertoOptional.isPresent()){
+            Conserto conserto = consertoOptional.get();
+            return ResponseEntity.ok(conserto);
+        }else{
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @DeleteMapping("/{id}")
