@@ -60,7 +60,7 @@ public class Conserto {
 
     public void atualizarInformacoes(DadosAtualizacaoConserto dados){
 
-        if(dados.nome() != null && dados.anosExperiencia() > 0){
+        if(dados.nome() != null || dados.anosExperiencia() != null){
             this.mecanicoResponsavel.atualizarInformacao(
                     new DadosMecanico(
                             dados.nome(),

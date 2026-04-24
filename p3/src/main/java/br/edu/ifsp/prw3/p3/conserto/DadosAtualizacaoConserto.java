@@ -10,7 +10,7 @@ public record DadosAtualizacaoConserto(
 
         String nome,
 
-        int anosExperiencia
+        Integer anosExperiencia
 
 ) {
         public DadosAtualizacaoConserto(Conserto conserto) {

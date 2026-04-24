@@ -1,7 +1,7 @@
 package br.edu.ifsp.prw3.p3.conserto;
 
 public record DadosDetalhamentoConserto(Long id, String dataEntrada, String dataSaida,
-                                        String nome, int anosExperiencia, String marca,
+                                        String nome, Integer anosExperiencia, String marca,
                                         String modelo, String ano, String cor, Boolean ativo) {
 
     public DadosDetalhamentoConserto(Conserto conserto){

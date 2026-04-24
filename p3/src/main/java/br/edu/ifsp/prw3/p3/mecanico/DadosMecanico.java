@@ -9,7 +9,7 @@ public record DadosMecanico(
         String nome,
 
         @NotNull
-        int anosExperiencia) {
+        Integer anosExperiencia) {
 
         public DadosMecanico(Mecanico mecanico) {
                 this(
