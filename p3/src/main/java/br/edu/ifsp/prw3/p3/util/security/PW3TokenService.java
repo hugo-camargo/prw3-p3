@@ -18,7 +18,7 @@ import java.time.ZoneOffset;
 @Service
 public class PW3TokenService {
 
-    @Value("${pw3.senha.principal.geracao.token")
+    @Value("${pw3.senha.principal.geracao.token}")
     private String secret;
 
     public String gerarToken(Usuario usuario) {
