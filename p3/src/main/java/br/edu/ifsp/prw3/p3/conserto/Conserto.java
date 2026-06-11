@@ -8,7 +8,9 @@ import lombok.Getter;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.EqualsAndHashCode;
+import org.hibernate.annotations.UuidGenerator;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity(name = "Conserto")
@@ -17,13 +19,15 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Conserto {
+public class Conserto implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @EqualsAndHashCode.Include
+    @UuidGenerator
     @Column(nullable = false, unique = true, updatable = false)
     private final String uuid = UUID.randomUUID().toString();
 
