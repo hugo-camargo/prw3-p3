@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ca09593-383e-4acb-89b3-7d1d3c73c8b0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/oficina.mv.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/p3/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/p3/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p3/src/main/java/br/edu/ifsp/prw3/p3/conserto/Conserto.java" beforeDir="false" afterPath="$PROJECT_DIR$/p3/src/main/java/br/edu/ifsp/prw3/p3/conserto/Conserto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p3/src/main/java/br/edu/ifsp/prw3/p3/controller/ConsertoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/p3/src/main/java/br/edu/ifsp/prw3/p3/controller/ConsertoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p3/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/p3/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="5ca09593-383e-4acb-89b3-7d1d3c73c8b0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
